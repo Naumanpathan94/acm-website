@@ -87,15 +87,15 @@ const About = () => {
       </div>
 
       {/* Full-width content container */}
-<div className="w-full h-full min-h-screen flex flex-col sm:justify-center justify-start relative z-10 px-4 sm:px-6 lg:px-8 py-8 sm:py-12 max-w-full overflow-x-hidden min-h-[auto] sm:min-h-screen">
+      <div className="w-full h-full min-h-screen flex flex-col justify-start sm:justify-center relative z-10 px-4 sm:px-6 lg:px-8 py-6 sm:py-8 max-w-full overflow-x-hidden min-h-[auto] sm:min-h-screen">
         {/* Header Section - Full Width */}
-        <div className={`text-center mb-12 md:mb-16 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-          <div className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-blue-500/20 to-purple-500/20 text-blue-400 rounded-full text-sm font-semibold mb-6 border border-blue-500/30 backdrop-blur-sm hover:border-blue-400/50 hover:bg-gradient-to-r hover:from-blue-500/25 hover:to-purple-500/25 transition-all duration-300 group">
-            <Target className="w-4 h-4 mr-2 group-hover:rotate-12 transition-transform duration-300" />
+        <div className={`text-center mb-8 md:mb-12 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+          <div className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-blue-500/20 to-purple-500/20 text-blue-400 rounded-full text-xs font-semibold mb-4 border border-blue-500/30 backdrop-blur-sm hover:border-blue-400/50 hover:bg-gradient-to-r hover:from-blue-500/25 hover:to-purple-500/25 transition-all duration-300 group">
+            <Target className="w-3 h-3 mr-1 group-hover:rotate-12 transition-transform duration-300" />
             <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
               About Our Chapter
             </span>
-            <Sparkles className="w-4 h-4 ml-2 group-hover:scale-110 transition-transform duration-300" />
+            <Sparkles className="w-3 h-3 ml-1 group-hover:scale-110 transition-transform duration-300" />
           </div>
          
           <h2 className="text-5xl md:text-6xl lg:text-8xl font-black mb-6 bg-gradient-to-r from-white via-blue-100 to-blue-400 bg-clip-text text-transparent leading-tight">
