@@ -62,27 +62,27 @@ const RaitACMWebsite = () => {
       />
       
       {/* Hero Section - Full Viewport */}
-      <div className="w-full min-h-screen" style={{ minHeight: 'calc(var(--vh, 1vh) * 100)' }}>
+      <div className="w-full min-h-[100vh] sm:min-h-screen" style={{ minHeight: 'calc(var(--vh, 1vh) * 100)' }}>
         <Hero scrollToSection={scrollToSection} />
       </div>
       
       {/* About Section - Full Viewport */}
-      <div className="w-full min-h-screen" style={{ minHeight: 'calc(var(--vh, 1vh) * 100)' }}>
+      <div className="w-full min-h-[100vh] sm:min-h-screen" style={{ minHeight: 'calc(var(--vh, 1vh) * 100)' }}>
         <About />
       </div>
       
       {/* Events Section - Full Viewport */}
-      <div className="w-full min-h-screen" style={{ minHeight: 'calc(var(--vh, 1vh) * 100)' }}>
+      <div className="w-full min-h-[100vh] sm:min-h-screen" style={{ minHeight: 'calc(var(--vh, 1vh) * 100)' }}>
         <Events />
       </div>
       
       {/* Team Section - Full Viewport */}
-      <div className="w-full min-h-screen" style={{ minHeight: 'calc(var(--vh, 1vh) * 100)' }}>
+      <div className="w-full min-h-[100vh] sm:min-h-screen" style={{ minHeight: 'calc(var(--vh, 1vh) * 100)' }}>
         <Team />
       </div>
       
       {/* Contact Section - Full Viewport */}
-      <div className="w-full min-h-screen" style={{ minHeight: 'calc(var(--vh, 1vh) * 100)' }}>
+      <div className="w-full min-h-[100vh] sm:min-h-screen" style={{ minHeight: 'calc(var(--vh, 1vh) * 100)' }}>
         <Contact />
       </div>
       
