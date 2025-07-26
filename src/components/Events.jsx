@@ -180,23 +180,23 @@ const Events = () => {
                       <event.icon className="w-6 h-6 text-white" />
                     </div>
                   </div>
-
+  
                   {/* Title */}
                   <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-blue-400 transition-colors duration-300 leading-tight">
                     {event.title}
                   </h3>
-
+  
                   {/* Date */}
                   <p className="text-blue-400 font-semibold mb-4 flex items-center group-hover:text-blue-300 transition-colors duration-300">
                     <Calendar className="w-4 h-4 mr-2" />
                     {event.date}
                   </p>
-
+  
                   {/* Description */}
                   <p className="text-gray-300 mb-6 leading-relaxed group-hover:text-gray-200 transition-colors duration-300">
                     {event.description}
                   </p>
-
+  
                   {/* Stats */}
                   <div className="flex justify-between items-center mb-6 p-4 bg-white/5 rounded-2xl border border-white/10">
                     <div className="text-center">
@@ -212,18 +212,18 @@ const Events = () => {
                       <div className="text-xs text-gray-400">Duration</div>
                     </div>
                   </div>
-
+  
                   {/* Learn More Button */}
                   <button className="group/button w-full text-blue-400 font-semibold flex items-center justify-center hover:text-blue-300 transition-all duration-300 p-3 rounded-2xl border border-blue-400/30 hover:border-blue-400/50 hover:bg-blue-400/10">
                     Learn More 
                     <ArrowRight className="ml-2 w-4 h-4 group-hover/button:translate-x-2 transition-transform duration-300" />
                   </button>
                 </div>
-
+  
                 {/* Hover Overlay */}
                 <div className="absolute inset-0 bg-gradient-to-br from-transparent via-transparent to-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
               </div>
-
+  
               {/* Floating Status Indicator */}
               <div className={`absolute -top-2 -right-2 w-6 h-6 bg-gradient-to-br ${event.gradient} rounded-full opacity-0 group-hover:opacity-100 transition-all duration-500 animate-ping`}>
                 <div className={`absolute inset-1 bg-gradient-to-br ${event.gradient} rounded-full`}></div>

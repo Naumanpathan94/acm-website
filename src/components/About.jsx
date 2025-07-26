@@ -87,7 +87,7 @@ const About = () => {
       </div>
 
       {/* Full-width content container */}
-<div className="w-full h-full min-h-screen flex flex-col sm:justify-center justify-start relative z-10 px-4 sm:px-6 lg:px-8 py-8 sm:py-12 max-w-full overflow-x-hidden">
+<div className="w-full h-full min-h-screen flex flex-col sm:justify-center justify-start relative z-10 px-4 sm:px-6 lg:px-8 py-8 sm:py-12 max-w-full overflow-x-hidden min-h-[auto] sm:min-h-screen">
         {/* Header Section - Full Width */}
         <div className={`text-center mb-12 md:mb-16 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           <div className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-blue-500/20 to-purple-500/20 text-blue-400 rounded-full text-sm font-semibold mb-6 border border-blue-500/30 backdrop-blur-sm hover:border-blue-400/50 hover:bg-gradient-to-r hover:from-blue-500/25 hover:to-purple-500/25 transition-all duration-300 group">
