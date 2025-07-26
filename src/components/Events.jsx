@@ -126,7 +126,7 @@ const Events = () => {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Header Section */}
-        <div className={`text-center mb-24 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+        <div className={`text-center mb-16 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           <div className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-purple-500/20 to-blue-500/20 text-purple-400 rounded-full text-sm font-semibold mb-6 border border-purple-500/30 backdrop-blur-sm hover:border-purple-400/50 transition-all duration-300 group">
             <Calendar className="w-4 h-4 mr-2 group-hover:rotate-12 transition-transform duration-300" />
             <span className="bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">
@@ -135,12 +135,12 @@ const Events = () => {
             <Sparkles className="w-4 h-4 ml-2 group-hover:scale-110 transition-transform duration-300" />
           </div>
           
-          <h2 className="text-5xl md:text-7xl font-black mb-8 bg-gradient-to-r from-white via-purple-100 to-purple-400 bg-clip-text text-transparent leading-tight">
+          <h2 className="text-5xl md:text-6xl font-black mb-6 bg-gradient-to-r from-white via-purple-100 to-purple-400 bg-clip-text text-transparent leading-tight">
             Events & Programs
           </h2>
           
           <div className="relative">
-            <p className="text-2xl text-gray-300 max-w-4xl mx-auto leading-relaxed font-light">
+            <p className="text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed font-light">
               From 
               <span className="text-transparent bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text font-semibold"> ELIXER Techfest </span>
               to coding sessions, we organize diverse technical events throughout the 

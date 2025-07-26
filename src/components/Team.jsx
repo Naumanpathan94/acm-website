@@ -112,7 +112,7 @@ const Team = () => {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Header Section */}
-<div className={`text-center mb-24 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : ''}`}>
+<div className={`text-center mb-16 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : ''}`}>
           <div className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-green-500/20 to-blue-500/20 text-green-400 rounded-full text-sm font-semibold mb-6 border border-green-500/30 backdrop-blur-sm hover:border-green-400/50 transition-all duration-300 group">
             <Users className="w-4 h-4 mr-2 group-hover:rotate-12 transition-transform duration-300" />
             <span className="bg-gradient-to-r from-green-400 to-blue-400 bg-clip-text text-transparent">
@@ -121,12 +121,12 @@ const Team = () => {
             <Sparkles className="w-4 h-4 ml-2 group-hover:scale-110 transition-transform duration-300" />
           </div>
           
-          <h2 className="text-5xl md:text-7xl font-black mb-8 bg-gradient-to-r from-white via-green-100 to-green-400 bg-clip-text text-transparent leading-tight">
+          <h2 className="text-5xl md:text-6xl font-black mb-6 bg-gradient-to-r from-white via-green-100 to-green-400 bg-clip-text text-transparent leading-tight">
             Team
           </h2>
           
           <div className="relative">
-            <p className="text-2xl text-gray-300 max-w-4xl mx-auto leading-relaxed font-light">
+            <p className="text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed font-light">
               Meet the 
               <span className="text-transparent bg-gradient-to-r from-green-400 to-blue-400 bg-clip-text font-semibold"> dedicated individuals </span>
               who drive our chapter forward and organize 

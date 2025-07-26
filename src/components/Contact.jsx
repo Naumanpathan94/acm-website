@@ -70,7 +70,7 @@ const Contact = () => {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Header Section */}
-        <div className={`text-center mb-24 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+        <div className={`text-center mb-16 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           <div className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-white/10 to-blue-500/20 text-white rounded-full text-sm font-semibold mb-6 border border-white/20 backdrop-blur-sm hover:border-white/40 transition-all duration-300 group">
             <Mail className="w-4 h-4 mr-2 group-hover:rotate-12 transition-transform duration-300" />
             <span className="bg-gradient-to-r from-white to-blue-300 bg-clip-text text-transparent">
@@ -79,12 +79,12 @@ const Contact = () => {
             <Sparkles className="w-4 h-4 ml-2 group-hover:scale-110 transition-transform duration-300" />
           </div>
           
-          <h2 className="text-5xl md:text-7xl font-black mb-8 bg-gradient-to-r from-white via-blue-100 to-blue-400 bg-clip-text text-transparent leading-tight">
+          <h2 className="text-5xl md:text-6xl font-black mb-6 bg-gradient-to-r from-white via-blue-100 to-blue-400 bg-clip-text text-transparent leading-tight">
             Contact Us
           </h2>
           
           <div className="relative">
-            <p className="text-2xl text-gray-300 max-w-4xl mx-auto leading-relaxed font-light">
+            <p className="text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed font-light">
               Join our 
               <span className="text-transparent bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text font-semibold"> community </span>
               or reach out for collaborations and 
