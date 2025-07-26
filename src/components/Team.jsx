@@ -160,11 +160,11 @@ const Team = () => {
                 {/* Profile Image Section */}
                 <div className="relative mb-8 mx-auto w-fit">
                   <div className="relative">
-                    <img
-                      src={member.image}
-                      alt={member.name}
-                      className="w-48 h-48 rounded-3xl object-cover shadow-2xl border-4 border-gray-700 hover:border-white/20 transition-all duration-500 group-hover:scale-110"
-                    />
+<img
+  src={member.image}
+  alt={member.name}
+  className="w-32 h-32 md:w-48 md:h-48 rounded-3xl object-cover shadow-2xl border-4 border-gray-700 hover:border-white/20 transition-all duration-500 group-hover:scale-110"
+/>
                     
                     {/* Animated Border */}
                     <div className={`absolute inset-0 rounded-3xl bg-gradient-to-r ${member.gradient} opacity-0 group-hover:opacity-20 transition-opacity duration-500`}></div>
