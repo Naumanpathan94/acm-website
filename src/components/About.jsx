@@ -87,7 +87,7 @@ const About = () => {
       </div>
 
       {/* Full-width content container */}
-      <div className="w-full h-full min-h-screen flex flex-col justify-start sm:justify-center relative z-10 px-4 sm:px-6 lg:px-8 py-6 sm:py-8 max-w-full overflow-x-hidden min-h-[auto] sm:min-h-screen">
+      <div className="w-full h-full min-h-screen flex flex-col justify-start sm:justify-center relative z-10 px-4 sm:px-6 lg:px-8 py-6 sm:py-8 max-w-full overflow-x-hidden sm:min-h-screen">
         {/* Header Section - Full Width */}
         <div className={`text-center mb-8 md:mb-12 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           <div className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-blue-500/20 to-purple-500/20 text-blue-400 rounded-full text-xs font-semibold mb-4 border border-blue-500/30 backdrop-blur-sm hover:border-blue-400/50 hover:bg-gradient-to-r hover:from-blue-500/25 hover:to-purple-500/25 transition-all duration-300 group">
@@ -98,18 +98,18 @@ const About = () => {
             <Sparkles className="w-3 h-3 ml-1 group-hover:scale-110 transition-transform duration-300" />
           </div>
          
-          <h2 className="text-5xl md:text-6xl lg:text-8xl font-black mb-6 bg-gradient-to-r from-white via-blue-100 to-blue-400 bg-clip-text text-transparent leading-tight">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black mb-4 sm:mb-6 bg-gradient-to-r from-white via-blue-100 to-blue-400 bg-clip-text text-transparent leading-tight">
             About Us
           </h2>
          
-          <div className="relative max-w-6xl mx-auto">
-            <p className="text-xl md:text-2xl lg:text-3xl text-gray-300 leading-relaxed font-light">
+          <div className="relative max-w-4xl mx-auto">
+            <p className="text-base sm:text-lg md:text-xl text-gray-300 leading-relaxed font-light">
               Advancing computing as a science and profession through
               <span className="text-transparent bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text font-semibold"> innovation </span>
               and
               <span className="text-transparent bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text font-semibold"> community</span>
             </p>
-            <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-32 h-1 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full"></div>
+            <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full"></div>
           </div>
         </div>
 
