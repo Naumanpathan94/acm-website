@@ -98,7 +98,7 @@ const About = () => {
             <Sparkles className="w-3 h-3 ml-1 group-hover:scale-110 transition-transform duration-300" />
           </div>
          
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black mb-4 sm:mb-6 bg-gradient-to-r from-white via-blue-100 to-blue-400 bg-clip-text text-transparent leading-tight">
+          <h2 className="text-4xl sm:text-5xl md:text-6xl font-black mb-4 sm:mb-6 bg-gradient-to-r from-white via-blue-100 to-blue-400 bg-clip-text text-transparent leading-tight">
             About Us
           </h2>
          
@@ -115,18 +115,18 @@ const About = () => {
 
         {/* Main Content Grid - Full Width */}
         <div className="flex-1 w-full max-w-7xl mx-auto">
-<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-8 lg:gap-16 h-full items-center">
+<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-6 lg:gap-8 h-full items-center">
             {/* Left Column - Mission & Stats */}
-            <div className={`space-y-8 transition-all duration-1000 delay-300 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'}`}>
+            <div className={`space-y-6 transition-all duration-1000 delay-300 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'}`}>
               {/* Mission Card - Expanded */}
               <div className="group relative h-full">
                 <div className="absolute -inset-2 bg-gradient-to-r from-blue-500 to-purple-500 rounded-3xl blur opacity-25 group-hover:opacity-50 transition duration-1000 animate-pulse"></div>
-                <div className="relative bg-gray-800/70 backdrop-blur-xl p-8 md:p-12 rounded-3xl border border-gray-600/30 hover:border-blue-500/50 hover:bg-gray-800/80 transition-all duration-500 h-full flex flex-col justify-center">
-                  <div className="flex items-center mb-8">
-                    <div className="w-14 h-14 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl flex items-center justify-center mr-6 group-hover:scale-110 transition-transform duration-300 shadow-2xl">
-                      <Zap className="w-7 h-7 text-white" />
+                <div className="relative bg-gray-800/70 backdrop-blur-xl p-6 md:p-8 rounded-3xl border border-gray-600/30 hover:border-blue-500/50 hover:bg-gray-800/80 transition-all duration-500 h-full flex flex-col justify-center">
+                  <div className="flex items-center mb-6">
+                    <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl flex items-center justify-center mr-4 group-hover:scale-110 transition-transform duration-300 shadow-2xl">
+                      <Zap className="w-6 h-6 text-white" />
                     </div>
-                    <h3 className="text-3xl md:text-4xl font-bold text-white">Our Mission</h3>
+                    <h3 className="text-2xl md:text-3xl font-bold text-white">Our Mission</h3>
                   </div>
                  
                   <div className="space-y-6 flex-1">

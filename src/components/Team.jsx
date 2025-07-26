@@ -112,27 +112,27 @@ const Team = () => {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Header Section */}
-<div className={`text-center mb-16 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : ''}`}>
-          <div className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-green-500/20 to-blue-500/20 text-green-400 rounded-full text-sm font-semibold mb-6 border border-green-500/30 backdrop-blur-sm hover:border-green-400/50 transition-all duration-300 group">
-            <Users className="w-4 h-4 mr-2 group-hover:rotate-12 transition-transform duration-300" />
+<div className={`text-center mb-12 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : ''}`}>
+          <div className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-green-500/20 to-blue-500/20 text-green-400 rounded-full text-xs font-semibold mb-4 border border-green-500/30 backdrop-blur-sm hover:border-green-400/50 transition-all duration-300 group">
+            <Users className="w-3 h-3 mr-1 group-hover:rotate-12 transition-transform duration-300" />
             <span className="bg-gradient-to-r from-green-400 to-blue-400 bg-clip-text text-transparent">
               Our Leadership Team
             </span>
-            <Sparkles className="w-4 h-4 ml-2 group-hover:scale-110 transition-transform duration-300" />
+            <Sparkles className="w-3 h-3 ml-1 group-hover:scale-110 transition-transform duration-300" />
           </div>
           
-          <h2 className="text-5xl md:text-6xl font-black mb-6 bg-gradient-to-r from-white via-green-100 to-green-400 bg-clip-text text-transparent leading-tight">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black mb-4 bg-gradient-to-r from-white via-green-100 to-green-400 bg-clip-text text-transparent leading-tight">
             Team
           </h2>
           
           <div className="relative">
-            <p className="text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed font-light">
+            <p className="text-sm sm:text-base md:text-lg text-gray-300 max-w-4xl mx-auto leading-relaxed font-light">
               Meet the 
               <span className="text-transparent bg-gradient-to-r from-green-400 to-blue-400 bg-clip-text font-semibold"> dedicated individuals </span>
               who drive our chapter forward and organize 
               <span className="text-transparent bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text font-semibold"> impactful events</span>
             </p>
-            <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-32 h-1 bg-gradient-to-r from-green-500 via-blue-500 to-purple-500 rounded-full"></div>
+            <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-green-500 via-blue-500 to-purple-500 rounded-full"></div>
           </div>
         </div>
 
