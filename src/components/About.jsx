@@ -102,7 +102,7 @@ const About = () => {
             About Us
           </h2>
          
-          <div className="relative max-w-4xl mx-auto">
+      <div className="relative max-w-3xl mx-auto px-2 sm:px-4">
             <p className="text-base sm:text-lg md:text-xl text-gray-300 leading-relaxed font-light">
               Advancing computing as a science and profession through
               <span className="text-transparent bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text font-semibold"> innovation </span>
@@ -115,7 +115,7 @@ const About = () => {
 
         {/* Main Content Grid - Full Width */}
         <div className="flex-1 w-full max-w-7xl mx-auto">
-<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-6 lg:gap-8 h-full items-center">
+<div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-6 h-full items-center">
             {/* Left Column - Mission & Stats */}
             <div className={`space-y-6 transition-all duration-1000 delay-300 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'}`}>
               {/* Mission Card - Expanded */}
