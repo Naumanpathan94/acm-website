@@ -50,7 +50,7 @@ const Navigation = ({ isMenuOpen, setIsMenuOpen, activeSection, scrollToSection 
         ))}
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 max-w-full overflow-x-hidden">
         <div className="flex justify-between items-center h-20">
           {/* Enhanced Logo */}
           <div 

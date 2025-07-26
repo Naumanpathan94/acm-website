@@ -105,7 +105,7 @@ const Footer = () => {
         <div className="absolute inset-0 bg-white/30 transform -skew-x-12 animate-shimmer"></div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 relative z-10">
+<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 relative z-10 max-w-full overflow-x-hidden">
         {/* Main Footer Content */}
         <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           <div className="grid lg:grid-cols-4 gap-12 mb-16">

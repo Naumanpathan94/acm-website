@@ -87,7 +87,7 @@ const About = () => {
       </div>
 
       {/* Full-width content container */}
-      <div className="w-full h-full min-h-screen flex flex-col justify-center relative z-10 px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
+<div className="w-full h-full min-h-screen flex flex-col justify-center relative z-10 px-4 sm:px-6 lg:px-8 py-8 sm:py-12 max-w-full overflow-x-hidden">
         {/* Header Section - Full Width */}
         <div className={`text-center mb-12 md:mb-16 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           <div className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-blue-500/20 to-purple-500/20 text-blue-400 rounded-full text-sm font-semibold mb-6 border border-blue-500/30 backdrop-blur-sm hover:border-blue-400/50 hover:bg-gradient-to-r hover:from-blue-500/25 hover:to-purple-500/25 transition-all duration-300 group">
@@ -115,7 +115,7 @@ const About = () => {
 
         {/* Main Content Grid - Full Width */}
         <div className="flex-1 w-full max-w-7xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 h-full items-center">
+<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-8 lg:gap-16 h-full items-center">
             {/* Left Column - Mission & Stats */}
             <div className={`space-y-8 transition-all duration-1000 delay-300 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'}`}>
               {/* Mission Card - Expanded */}
@@ -150,7 +150,7 @@ const About = () => {
               </div>
 
               {/* Stats Grid - Expanded */}
-              <div className="grid grid-cols-2 gap-6">
+<div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div className="group relative">
                   <div className="absolute -inset-2 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-2xl blur opacity-25 group-hover:opacity-50 transition duration-1000"></div>
                   <div className="relative text-center p-8 bg-gray-800/70 backdrop-blur-xl rounded-2xl border border-gray-600/30 hover:border-blue-500/50 hover:bg-gray-800/80 transition-all duration-500 hover:scale-105">
