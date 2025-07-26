@@ -112,7 +112,7 @@ const Team = () => {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Header Section */}
-        <div className={`text-center mb-24 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+<div className={`text-center mb-24 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : ''}`}>
           <div className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-green-500/20 to-blue-500/20 text-green-400 rounded-full text-sm font-semibold mb-6 border border-green-500/30 backdrop-blur-sm hover:border-green-400/50 transition-all duration-300 group">
             <Users className="w-4 h-4 mr-2 group-hover:rotate-12 transition-transform duration-300" />
             <span className="bg-gradient-to-r from-green-400 to-blue-400 bg-clip-text text-transparent">
