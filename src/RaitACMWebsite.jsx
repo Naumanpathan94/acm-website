@@ -6,6 +6,7 @@ import Events from './components/Events';
 import Team from './components/Team';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+import RAITACMComponent from './components/join';
 
 const RaitACMWebsite = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -74,6 +75,11 @@ const RaitACMWebsite = () => {
       {/* Events Section - Full Viewport */}
       <div className="w-full min-h-screen" style={{ minHeight: 'calc(var(--vh, 1vh) * 100)' }}>
         <Events />
+      </div>
+
+      {/* Join - Full Viewport */}
+      <div className="w-full min-h-screen" style={{ minHeight: 'calc(var(--vh, 1vh) * 100)' }}>
+        <RAITACMComponent />
       </div>
       
       {/* Team Section - Full Viewport */}
