@@ -60,11 +60,14 @@ const Navigation = ({ isMenuOpen, setIsMenuOpen, activeSection, scrollToSection 
             onMouseLeave={() => setLogoHovered(false)}
           >
             <div className="relative">
-              <div className={`w-12 h-12 bg-gradient-to-br from-blue-500 via-purple-600 to-pink-600 rounded-2xl flex items-center justify-center shadow-2xl transition-all duration-500 ${
-                logoHovered ? 'scale-110 rotate-6 shadow-blue-500/50' : 'scale-100 rotate-0'
-              }`}>
-                <Code className="w-7 h-7 text-white" />
-              </div>
+              <img
+                src="/src/assets/logodark.png"
+                alt="RAIT ACM Logo"
+                style={{ width: '48px', height: 'auto', objectFit: 'contain' }}
+                className={`rounded-2xl shadow-2xl transition-all duration-500 ${
+                  logoHovered ? 'scale-110 rotate-6 shadow-blue-500/50' : 'scale-100 rotate-0'
+                }`}
+              />
               {/* Glow effect */}
               <div className={`absolute -inset-1 bg-gradient-to-r from-blue-500 to-purple-600 rounded-2xl blur opacity-0 transition-opacity duration-500 ${
                 logoHovered ? 'opacity-50' : 'opacity-0'
