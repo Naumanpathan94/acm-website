@@ -50,7 +50,7 @@ const Navigation = ({ isMenuOpen, setIsMenuOpen, activeSection, scrollToSection 
         ))}
       </div>
 
-<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 max-w-full overflow-x-hidden">
+<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 overflow-x-hidden">
         <div className="flex justify-between items-center h-20">
           {/* Enhanced Logo */}
           <div 
@@ -61,7 +61,7 @@ const Navigation = ({ isMenuOpen, setIsMenuOpen, activeSection, scrollToSection 
           >
             <div className="relative">
               <img
-                src="/src/assets/logodark.png"
+                src="src/assets/logodark.png"
                 alt="RAIT ACM Logo"
                 style={{ width: '48px', height: 'auto', objectFit: 'contain' }}
                 className={`rounded-2xl shadow-2xl transition-all duration-500 ${
