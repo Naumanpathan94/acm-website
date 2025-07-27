@@ -1,5 +1,5 @@
 import React, { useRef, useEffect, useState } from 'react';
-import { Calendar, ExternalLink, Star, Trophy, Code, Users, BookOpen, Zap, Sparkles, ArrowRight, Clock } from 'lucide-react';
+import { Calendar, ExternalLink, Star, Trophy, Code, Users, BookOpen, Zap, Sparkles, ArrowRight, Clock, ChevronLeft } from 'lucide-react';
 
 const events = [
   {
@@ -70,10 +70,223 @@ const events = [
   }
 ];
 
+// 3D Marquee Component
+const Marquee3D = ({ events, onEventSelect }) => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [isHovered, setIsHovered] = useState(false);
+
+  useEffect(() => {
+    if (!isHovered) {
+      const interval = setInterval(() => {
+        setCurrentIndex((prev) => (prev + 1) % events.length);
+      }, 3000);
+      return () => clearInterval(interval);
+    }
+  }, [events.length, isHovered]);
+
+  const getItemStyle = (index) => {
+    const diff = (index - currentIndex + events.length) % events.length;
+    const angle = (diff * 360) / events.length;
+    const radius = 280;
+    const x = Math.sin((angle * Math.PI) / 180) * radius;
+    const z = Math.cos((angle * Math.PI) / 180) * radius;
+    const scale = z > 0 ? 1 : 0.7;
+    const opacity = z > 0 ? 1 : 0.4;
+    
+    return {
+      transform: `translate3d(${x}px, 0, ${z}px) scale(${scale})`,
+      opacity,
+      zIndex: Math.round(z),
+    };
+  };
+
+  return (
+    <div className="relative h-96 flex items-center justify-center overflow-hidden">
+      <div 
+        className="relative w-full h-full flex items-center justify-center"
+        style={{ perspective: '1000px' }}
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+      >
+        {events.map((event, index) => (
+          <div
+            key={event.id}
+            className="absolute w-72 h-48 cursor-pointer transition-all duration-700 ease-out transform-gpu"
+            style={getItemStyle(index)}
+            onClick={() => onEventSelect(event)}
+          >
+            <div className={`w-full h-full bg-gradient-to-br ${event.gradient} rounded-3xl p-6 shadow-2xl border border-white/20 backdrop-blur-sm hover:scale-110 transition-transform duration-300`}>
+              <div className="flex items-center justify-between mb-3">
+                <span className="px-3 py-1 text-xs font-bold rounded-full bg-white/20 text-white">
+                  {event.status}
+                </span>
+                <event.icon className="w-6 h-6 text-white" />
+              </div>
+              <h3 className="text-lg font-bold text-white mb-2 line-clamp-2">
+                {event.title}
+              </h3>
+              <p className="text-white/80 text-sm mb-3 flex items-center">
+                <Calendar className="w-3 h-3 mr-1" />
+                {event.date}
+              </p>
+              <div className="flex justify-between text-white/80 text-xs">
+                <span>{event.participants} participants</span>
+                <span>{event.duration}</span>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+      
+      {/* Navigation dots */}
+      <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
+        {events.map((_, index) => (
+          <button
+            key={index}
+            className={`w-2 h-2 rounded-full transition-all duration-300 ${
+              index === currentIndex ? 'bg-white scale-125' : 'bg-white/50'
+            }`}
+            onClick={() => setCurrentIndex(index)}
+          />
+        ))}
+      </div>
+    </div>
+  );
+};
+
+// Detailed Events View Component
+const DetailedEventsView = ({ onBack }) => {
+  const [isVisible, setIsVisible] = useState(false);
+  const [hoveredCard, setHoveredCard] = useState(null);
+  const sectionRef = useRef(null);
+
+  useEffect(() => {
+    setIsVisible(true);
+  }, []);
+
+  return (
+    <section className="py-16 bg-gradient-to-br from-gray-900 via-gray-800 to-black relative overflow-hidden">
+      {/* Animated Background Elements */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute -top-40 -right-40 w-80 h-80 bg-purple-500/10 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-blue-500/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
+        <div className="absolute top-1/2 left-1/3 w-60 h-60 bg-green-500/5 rounded-full blur-3xl animate-spin-slow"></div>
+      </div>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        {/* Back Button */}
+        <button
+          onClick={onBack}
+          className="mb-8 flex items-center text-blue-400 hover:text-blue-300 transition-colors duration-300 group"
+        >
+          <ChevronLeft className="w-5 h-5 mr-2 group-hover:-translate-x-1 transition-transform duration-300" />
+          Back to Events Overview
+        </button>
+
+        {/* Header Section */}
+        <div className={`text-center mb-12 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+          <div className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-purple-500/20 to-blue-500/20 text-purple-400 rounded-full text-xs font-semibold mb-4 border border-purple-500/30 backdrop-blur-sm">
+            <Calendar className="w-3 h-3 mr-1" />
+            <span className="bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">
+              All Events & Activities
+            </span>
+            <Sparkles className="w-3 h-3 ml-1" />
+          </div>
+          
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black mb-4 bg-gradient-to-r from-white via-purple-100 to-purple-400 bg-clip-text text-transparent leading-tight">
+            Complete Events Portfolio
+          </h2>
+        </div>
+
+        {/* Events Grid */}
+        <div className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 transition-all duration-1000 delay-300 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+          {events.map((event, index) => (
+            <div 
+              key={event.id}
+              className="group relative"
+              style={{ animationDelay: `${index * 100}ms` }}
+              onMouseEnter={() => setHoveredCard(event.id)}
+              onMouseLeave={() => setHoveredCard(null)}
+            >
+              {/* Glow Effect */}
+              <div className={`absolute -inset-1 bg-gradient-to-r ${event.gradient} rounded-3xl blur opacity-0 group-hover:opacity-50 transition duration-1000`}></div>
+              
+              {/* Main Card */}
+              <div className="relative bg-gray-800/90 backdrop-blur-xl rounded-3xl border border-gray-700/50 overflow-hidden hover:border-white/20 transition-all duration-500 transform hover:-translate-y-2 hover:scale-105">
+                {/* Top Gradient Bar */}
+                <div className={`h-2 bg-gradient-to-r ${event.gradient} relative overflow-hidden`}>
+                  <div className="absolute inset-0 bg-white/30 transform -skew-x-12 translate-x-full group-hover:translate-x-[-200%] transition-transform duration-1000"></div>
+                </div>
+                
+                <div className="p-6">
+                  {/* Header Section */}
+                  <div className="flex items-center justify-between mb-4">
+                    <span className={`px-3 py-1 text-xs font-bold rounded-full bg-gradient-to-r ${event.gradient} bg-opacity-20 text-white border border-white/20 backdrop-blur-sm`}>
+                      {event.status}
+                    </span>
+                    <div className={`p-2 rounded-xl bg-gradient-to-br ${event.gradient} shadow-lg group-hover:scale-110 group-hover:rotate-12 transition-all duration-300`}>
+                      <event.icon className="w-5 h-5 text-white" />
+                    </div>
+                  </div>
+  
+                  {/* Title */}
+                  <h3 className="text-xl font-bold text-white mb-2 group-hover:text-blue-400 transition-colors duration-300 leading-tight">
+                    {event.title}
+                  </h3>
+  
+                  {/* Date */}
+                  <p className="text-blue-400 font-semibold mb-3 flex items-center group-hover:text-blue-300 transition-colors duration-300">
+                    <Calendar className="w-4 h-4 mr-2" />
+                    {event.date}
+                  </p>
+  
+                  {/* Description */}
+                  <p className="text-gray-300 mb-4 leading-relaxed text-sm group-hover:text-gray-200 transition-colors duration-300">
+                    {event.description}
+                  </p>
+  
+                  {/* Stats */}
+                  <div className="flex justify-between items-center mb-4 p-3 bg-white/5 rounded-xl border border-white/10">
+                    <div className="text-center">
+                      <div className="text-sm font-bold text-white">{event.participants}</div>
+                      <div className="text-xs text-gray-400">Participants</div>
+                    </div>
+                    <div className="w-px h-6 bg-white/20"></div>
+                    <div className="text-center">
+                      <div className="text-sm font-bold text-white flex items-center">
+                        <Clock className="w-3 h-3 mr-1" />
+                        {event.duration}
+                      </div>
+                      <div className="text-xs text-gray-400">Duration</div>
+                    </div>
+                  </div>
+  
+                  {/* Learn More Button */}
+                  <button className="group/button w-full text-blue-400 font-semibold flex items-center justify-center hover:text-blue-300 transition-all duration-300 p-2 rounded-xl border border-blue-400/30 hover:border-blue-400/50 hover:bg-blue-400/10 text-sm">
+                    Learn More 
+                    <ArrowRight className="ml-2 w-4 h-4 group-hover/button:translate-x-1 transition-transform duration-300" />
+                  </button>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <style jsx>{`
+        .animate-spin-slow {
+          animation: spin 20s linear infinite;
+        }
+      `}</style>
+    </section>
+  );
+};
+
+// Main Events Component
 const Events = () => {
   const [isVisible, setIsVisible] = useState(false);
-  const [activeCard, setActiveCard] = useState(null);
-  const [hoveredCard, setHoveredCard] = useState(null);
+  const [showDetailedView, setShowDetailedView] = useState(false);
+  const [selectedEvent, setSelectedEvent] = useState(null);
   const sectionRef = useRef(null);
 
   useEffect(() => {
@@ -92,6 +305,23 @@ const Events = () => {
 
     return () => observer.disconnect();
   }, []);
+
+  const handleEventSelect = (event) => {
+    setSelectedEvent(event);
+    // You can add more logic here for event selection
+  };
+
+  const handleViewAllEvents = () => {
+    setShowDetailedView(true);
+  };
+
+  const handleBackToOverview = () => {
+    setShowDetailedView(false);
+  };
+
+  if (showDetailedView) {
+    return <DetailedEventsView onBack={handleBackToOverview} />;
+  }
 
   return (
     <section 
@@ -126,7 +356,7 @@ const Events = () => {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Header Section */}
-        <div className={`text-center mb-12 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+        <div className={`text-center mb-16 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           <div className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-purple-500/20 to-blue-500/20 text-purple-400 rounded-full text-xs font-semibold mb-4 border border-purple-500/30 backdrop-blur-sm hover:border-purple-400/50 transition-all duration-300 group">
             <Calendar className="w-3 h-3 mr-1 group-hover:rotate-12 transition-transform duration-300" />
             <span className="bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">
@@ -150,93 +380,19 @@ const Events = () => {
           </div>
         </div>
 
-        {/* Events Grid */}
-<div className={`grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6 mb-16 transition-all duration-1000 delay-300 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-          {events.map((event, index) => (
-            <div 
-              key={event.id}
-              className="group relative"
-              style={{ animationDelay: `${index * 200}ms` }}
-              onMouseEnter={() => setHoveredCard(event.id)}
-              onMouseLeave={() => setHoveredCard(null)}
-            >
-              {/* Glow Effect */}
-              <div className={`absolute -inset-1 bg-gradient-to-r ${event.gradient} rounded-3xl blur opacity-0 group-hover:opacity-50 transition duration-1000`}></div>
-              
-              {/* Main Card */}
-              <div className="relative bg-gray-800/90 backdrop-blur-xl rounded-3xl border border-gray-700/50 overflow-hidden hover:border-white/20 transition-all duration-500 transform hover:-translate-y-6 hover:scale-105">
-                {/* Top Gradient Bar */}
-                <div className={`h-2 bg-gradient-to-r ${event.gradient} relative overflow-hidden`}>
-                  <div className="absolute inset-0 bg-white/30 transform -skew-x-12 translate-x-full group-hover:translate-x-[-200%] transition-transform duration-1000"></div>
-                </div>
-                
-                <div className="p-8">
-                  {/* Header Section */}
-                  <div className="flex items-center justify-between mb-6">
-                    <span className={`px-4 py-2 text-xs font-bold rounded-full bg-gradient-to-r ${event.gradient} bg-opacity-20 text-white border border-white/20 backdrop-blur-sm`}>
-                      {event.status}
-                    </span>
-                    <div className={`p-3 rounded-2xl bg-gradient-to-br ${event.gradient} shadow-lg group-hover:scale-110 group-hover:rotate-12 transition-all duration-300`}>
-                      <event.icon className="w-6 h-6 text-white" />
-                    </div>
-                  </div>
-  
-                  {/* Title */}
-                  <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-blue-400 transition-colors duration-300 leading-tight">
-                    {event.title}
-                  </h3>
-  
-                  {/* Date */}
-                  <p className="text-blue-400 font-semibold mb-4 flex items-center group-hover:text-blue-300 transition-colors duration-300">
-                    <Calendar className="w-4 h-4 mr-2" />
-                    {event.date}
-                  </p>
-  
-                  {/* Description */}
-                  <p className="text-gray-300 mb-6 leading-relaxed group-hover:text-gray-200 transition-colors duration-300">
-                    {event.description}
-                  </p>
-  
-                  {/* Stats */}
-                  <div className="flex justify-between items-center mb-6 p-4 bg-white/5 rounded-2xl border border-white/10">
-                    <div className="text-center">
-                      <div className="text-lg font-bold text-white">{event.participants}</div>
-                      <div className="text-xs text-gray-400">Participants</div>
-                    </div>
-                    <div className="w-px h-8 bg-white/20"></div>
-                    <div className="text-center">
-                      <div className="text-lg font-bold text-white flex items-center">
-                        <Clock className="w-4 h-4 mr-1" />
-                        {event.duration}
-                      </div>
-                      <div className="text-xs text-gray-400">Duration</div>
-                    </div>
-                  </div>
-  
-                  {/* Learn More Button */}
-                  <button className="group/button w-full text-blue-400 font-semibold flex items-center justify-center hover:text-blue-300 transition-all duration-300 p-3 rounded-2xl border border-blue-400/30 hover:border-blue-400/50 hover:bg-blue-400/10">
-                    Learn More 
-                    <ArrowRight className="ml-2 w-4 h-4 group-hover/button:translate-x-2 transition-transform duration-300" />
-                  </button>
-                </div>
-  
-                {/* Hover Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-br from-transparent via-transparent to-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
-              </div>
-  
-              {/* Floating Status Indicator */}
-              <div className={`absolute -top-2 -right-2 w-6 h-6 bg-gradient-to-br ${event.gradient} rounded-full opacity-0 group-hover:opacity-100 transition-all duration-500 animate-ping`}>
-                <div className={`absolute inset-1 bg-gradient-to-br ${event.gradient} rounded-full`}></div>
-              </div>
-            </div>
-          ))}
+        {/* 3D Marquee */}
+        <div className={`transition-all duration-1000 delay-300 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+          <Marquee3D events={events} onEventSelect={handleEventSelect} />
         </div>
 
         {/* Bottom CTA Section */}
-        <div className={`text-center transition-all duration-1000 delay-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+        <div className={`text-center mt-16 transition-all duration-1000 delay-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           <div className="group relative inline-block">
             <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 rounded-2xl blur opacity-50 group-hover:opacity-75 transition duration-1000 animate-pulse"></div>
-<button className="relative bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 text-white px-6 sm:px-12 py-4 rounded-2xl font-semibold transition-all duration-300 transform hover:scale-105 hover:shadow-2xl flex items-center">
+            <button 
+              onClick={handleViewAllEvents}
+              className="relative bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 text-white px-6 sm:px-12 py-4 rounded-2xl font-semibold transition-all duration-300 transform hover:scale-105 hover:shadow-2xl flex items-center"
+            >
               <span>View All Events</span>
               <ExternalLink className="ml-3 w-5 h-5 group-hover:rotate-12 transition-transform duration-300" />
               <div className="absolute inset-0 bg-white/20 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left rounded-2xl"></div>
@@ -289,22 +445,11 @@ const Events = () => {
           animation: spin 20s linear infinite;
         }
         
-        @keyframes shimmer {
-          0% { transform: translateX(-100%); }
-          100% { transform: translateX(100%); }
-        }
-        
-        .animate-shimmer {
-          animation: shimmer 2s infinite;
-        }
-        
-        @keyframes glow {
-          0%, 100% { box-shadow: 0 0 20px rgba(139, 92, 246, 0.3); }
-          50% { box-shadow: 0 0 40px rgba(139, 92, 246, 0.6); }
-        }
-        
-        .animate-glow {
-          animation: glow 2s ease-in-out infinite;
+        .line-clamp-2 {
+          overflow: hidden;
+          display: -webkit-box;
+          -webkit-box-orient: vertical;
+          -webkit-line-clamp: 2;
         }
       `}</style>
     </section>
