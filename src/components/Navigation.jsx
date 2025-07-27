@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X, Code, ChevronRight, Star, Sparkles, Zap, Users, Calendar, Home, User, Phone } from 'lucide-react';
+import Logodark from '../assets/logodark.png';
+
 
 const Navigation = ({ isMenuOpen, setIsMenuOpen, activeSection, scrollToSection }) => {
   const [scrolled, setScrolled] = useState(false);
@@ -61,7 +63,7 @@ const Navigation = ({ isMenuOpen, setIsMenuOpen, activeSection, scrollToSection 
           >
             <div className="relative">
               <img
-                src="src/assets/logodark.png"
+                src={Logodark} 
                 alt="RAIT ACM Logo"
                 style={{ width: '48px', height: 'auto', objectFit: 'contain' }}
                 className={`rounded-2xl shadow-2xl transition-all duration-500 ${
